@@ -1,5 +1,6 @@
-/*===== Slider
+/*===== FunCarousel
 Author: Daniel Viedma
+Date: 04-25-2012
 ============================================================ */
 (function($){
     var totalWidth;
