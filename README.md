@@ -2,6 +2,7 @@ FunCarousel
 ===========
 
 jQuery carousel
+DEMO: http://thepolarway.com/funcarousel/
 
 Features:
 - Infinite navigation
