@@ -1,0 +1,103 @@
+/* General slider styles */
+
+.slider .slides-wrapper {
+    width: 960px;
+    overflow: hidden;
+    position: relative;
+    height: 400px;
+    margin: 0 auto;
+}
+
+.slider .slides {
+    height: 400px;
+    position: absolute;
+}
+
+.slider .slides .slide {
+    float: left;
+    margin-right: 20px;
+    width: 960px;
+}
+
+.slider .slides .slide {
+    display: none;
+}
+
+.slider .player-box {
+    margin-bottom: 25px;
+}
+
+.slider .control-nav {
+    padding-top: 10px;
+    margin: 0 auto;
+    bottom: 0;
+    margin: 0;
+    position: absolute;
+    width: 100%;
+}
+.control-nav .wrapper {
+    margin: 0 auto;
+}
+
+.slider .control-nav .control {
+    display: block;
+    background: #dddddd;
+    width: 11px;
+    height: 12px;
+    float: left;
+    text-indent: -9999px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.slider .control-nav .control.active {
+    background: #aaaaaa;
+}
+
+.slider .nav-arrow {
+    display: block;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 210px;
+    text-indent: -9999px;
+    cursor: pointer;
+    background: #dddddd;
+}
+
+.slider .nav-arrow.left {
+    left: 0;
+}
+
+.slider .nav-arrow.right {
+    right: 0;
+}
+
+.slides.blur {
+    opacity: 0.5;
+}
+.slides.blur .text-block h2, .slides.blur .text-block p {
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+.slides.blur .btn, .slides.blur .video-block {
+    box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Custom slides style */
+.text-block {
+    float: left;
+    width: 48%;
+    margin-top: 80px;
+}
+.media-block {
+    float: right;
+    margin-top: 130px;
+}
+h2 {
+    font-size: 64px;
+    font-family: 'helvetica', arial, san-serif;
+}
+p {
+    font-size: 16px;
+    font-family: 'helvetica', arial, san-serif;
+}
