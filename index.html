@@ -44,6 +44,7 @@
                         <div class="media-block">
                             <img width="480" alt="" src="img/slide1.jpg">
                         </div>
+                        <div id="box1" class="box"></div>
                     </div>
                     <div class="slide">
                         <div class="text-block">
@@ -53,6 +54,7 @@
                         <div class="media-block">
                             <img width="480" alt="" src="img/slide2.jpg">
                         </div>
+                        <div id="box2" class="box"></div>
                     </div>
                     <div class="slide">
                         <div class="text-block">
@@ -62,6 +64,57 @@
                         <div class="media-block">
                             <img width="480" alt="" src="img/slide3.jpg">
                         </div>
+                        <div id="box3" class="box"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="slider2" class="slider">
+            <div class="slides-wrapper">
+                <div class="slides">
+                    <div class="slide">
+                        <h2>1</h2>
+                    </div>
+                    <div class="slide">
+                        <h2>2</h2>
+                    </div>
+                    <div class="slide">
+                        <h2>3</h2>
+                    </div>
+                    <div class="slide">
+                        <h2>4</h2>
+                    </div>
+                    <div class="slide">
+                        <h2>5</h2>
+                    </div>
+                    <div class="slide">
+                        <h2>6</h2>
+                    </div>
+                    <div class="slide">
+                        <h2>7</h2>
+                    </div>
+                    <div class="slide">
+                        <h2>8</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="slider3" class="slider">
+            <div class="slides-wrapper">
+                <div class="slides">
+                    <div class="slide">
+                        <h2>1</h2>
+                    </div>
+                    <div class="slide">
+                        <h2>2</h2>
+                    </div>
+                    <div class="slide">
+                        <h2>3</h2>
+                    </div>
+                    <div class="slide">
+                        <h2>4</h2>
                     </div>
                 </div>
             </div>
@@ -82,9 +135,21 @@
 
     <script defer src="js/funcarousel.js"></script>
     <script type="text/javascript">
-      jQuery(document).ready(function() {
-          $('#slider1').funCarousel();
-      });
+        jQuery(document).ready(function() {
+            $('#slider1').funCarousel({
+                'securityMargin' : 1,
+                'speed' : 1000,
+                'parallax': true,
+                'controlNav' : true
+            });
+            $('#slider2').funCarousel({
+                'securityMargin' : 4
+            });
+            $('#slider3').funCarousel({
+                'numSlidesPerShift' : 3,
+                'securityMargin' : 1
+            });
+        });
     </script>
 
 

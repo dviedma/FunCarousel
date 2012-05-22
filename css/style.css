@@ -1,86 +1,104 @@
 /* General slider styles */
-
-.slider .slides-wrapper {
-    width: 960px;
-    overflow: hidden;
-    position: relative;
-    height: 400px;
-    margin: 0 auto;
-}
-
-.slider .slides {
-    height: 400px;
-    position: absolute;
-}
-
-.slider .slides .slide {
-    float: left;
-    margin-right: 20px;
-    width: 960px;
-}
-
-.slider .slides .slide {
-    display: none;
-}
-
-.slider .player-box {
-    margin-bottom: 25px;
-}
-
-.slider .control-nav {
-    padding-top: 10px;
-    margin: 0 auto;
-    bottom: 0;
+body {
     margin: 0;
-    position: absolute;
+    padding: 0;
+}
+
+.container {
     width: 100%;
+    overflow: hidden;
 }
-.control-nav .wrapper {
+
+.slider {
+    margin-right: 0;
+    /*overflow: hidden;*/
+    position: relative;
     margin: 0 auto;
+    width: 960px;
 }
 
-.slider .control-nav .control {
-    display: block;
-    background: #dddddd;
-    width: 11px;
-    height: 12px;
-    float: left;
-    text-indent: -9999px;
-    margin: 0 5px;
-    cursor: pointer;
+.slides-wrapper {
+  width: 100%;
+  /*overflow: hidden;*/
+  position: relative;
+  height: 400px;
+  margin: 0 auto;
+}
+/* line 13, ../../sass/core/funcarousel.scss */
+.slides-wrapper .slides {
+  height: 400px;
+  position: absolute;
+}
+/* line 16, ../../sass/core/funcarousel.scss */
+.slides-wrapper .slides .slide {
+  float: left;
+  margin-right: 20px;
+  width: 100%;
+  display: none;
+  width: 960px;
+  position: relative;
 }
 
-.slider .control-nav .control.active {
-    background: #aaaaaa;
+/* line 25, ../../sass/core/funcarousel.scss */
+.control-nav {
+  padding-top: 10px;
+  margin: 0 auto;
+  bottom: 0;
+  margin: 0;
+  position: absolute;
+  width: 100%;
+}
+/* line 32, ../../sass/core/funcarousel.scss */
+.control-nav .wrapper {
+  margin: 0 auto;
+}
+/* line 34, ../../sass/core/funcarousel.scss */
+.control-nav .wrapper .control {
+  display: block;
+  background: #dddddd;
+  width: 11px;
+  height: 12px;
+  float: left;
+  text-indent: -9999px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+/* line 43, ../../sass/core/funcarousel.scss */
+.control-nav .wrapper .control.active {
+  background: #aaaaaa;
 }
 
-.slider .nav-arrow {
-    display: block;
-    width: 80px;
-    height: 80px;
-    position: absolute;
-    top: 210px;
-    text-indent: -9999px;
-    cursor: pointer;
-    background: #dddddd;
+/* line 50, ../../sass/core/funcarousel.scss */
+.nav-arrow {
+  display: block;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  top: 210px;
+  text-indent: -9999px;
+  cursor: pointer;
+  background: #dddddd;
+}
+/* line 59, ../../sass/core/funcarousel.scss */
+.nav-arrow.left {
+  left: 0;
+}
+/* line 62, ../../sass/core/funcarousel.scss */
+.nav-arrow.right {
+  right: 0;
 }
 
-.slider .nav-arrow.left {
-    left: 0;
-}
-
-.slider .nav-arrow.right {
-    right: 0;
-}
-
+/* line 67, ../../sass/core/funcarousel.scss */
 .slides.blur {
-    opacity: 0.5;
+  opacity: 0.5;
 }
-.slides.blur .text-block h2, .slides.blur .text-block p {
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+/* line 69, ../../sass/core/funcarousel.scss */
+.slides.blur .text-block {
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
-.slides.blur .btn, .slides.blur .video-block {
-    box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.3);
+/* line 72, ../../sass/core/funcarousel.scss */
+.slides.blur .media-block {
+  box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* Custom slides style */
@@ -101,3 +119,50 @@ p {
     font-size: 16px;
     font-family: 'helvetica', arial, san-serif;
 }
+.box {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 200px;
+    left: 450px;
+}
+.slides.blur .text-block h2, .slides.blur .text-block p {
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+.slides.blur .btn, .slides.blur .video-block {
+    box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.3);
+}
+#box1 {
+    background: red;
+}
+#box2 {
+    background: blue;
+}
+#box3 {
+    background: green;
+}
+
+#slider2 {
+    position: inherit;
+    margin-top: 50px;
+}
+#slider2 .nav-arrow{
+    top: 580px;
+}
+#slider2 .slide {
+    width: 290px;
+    height: 350px;
+    margin-right: 30px;
+    background: #9acd32;
+}
+
+#slider3 {
+    width: 640px;
+    overflow: hidden;
+}
+#slider3 .slide {
+    width: 200px;
+    height: 300px;
+    background: #87cefa;
+}
+
