@@ -18,7 +18,11 @@ Date: 04-25-2012
         var defaults = {
             controlNav: false,
             speed: 'fast',
+
             securityMargin: 0,
+            //adjust this value to avoid empty spaces on sides depending on how many slides you have,
+            //size of the shift and how wide is the slide
+
             numSlidesPerShift: 1,
             parallax: false
         };
