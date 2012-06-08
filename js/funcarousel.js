@@ -14,7 +14,6 @@ Date: 04-25-2012
     var $firstSlide;
 
     $.fn.funCarousel = function(ops) {
-
         var defaults = {
             controlNav: false,
             speed: 'fast',
@@ -201,11 +200,12 @@ Date: 04-25-2012
                         self.find('.slides').css('left', -shift*(indexActive-options.numSlidesPerShift+numSlides));
                     }else{                                                                          //keep moving left
                         //shift .first class
-                        fc.getFirstSlide(self).removeClass('first active').
+                        fc.getFirstSlide(self).removeClass('first').
                             prev().
                             addClass('first');
 
-                        self.find('.slide').eq(indexFirst-options.numSlidesPerShift).addClass('active');
+                        fc.getActiveSlide(self).removeClass('active');
+                        self.find('.slide').eq(indexActive-options.numSlidesPerShift).addClass('active');
                     }
 
                     if(options.parallax) {
@@ -277,11 +277,12 @@ Date: 04-25-2012
                             self.find('.slides').css('left',-shift*(indexActive+options.numSlidesPerShift-numSlides));
                         } else {                                                         //keep moving right
                             //shift .first class
-                            fc.getFirstSlide(self).removeClass('first active').
+                            fc.getFirstSlide(self).removeClass('first').
                                 next().
                                 addClass('first');
 
-                            self.find('.slide').eq(indexFirst+options.numSlidesPerShift).addClass('active');
+                            fc.getActiveSlide(self).removeClass('active');
+                            self.find('.slide').eq(indexActive+options.numSlidesPerShift).addClass('active');
                         }
 
                         if(options.parallax) {
@@ -334,7 +335,6 @@ Date: 04-25-2012
             }
 
         };
-
 
         if(this.length){
             return fc.build(this);
