@@ -5,7 +5,8 @@ Date: 04-25-2012
 (function($){
     var totalWidth;
     var innerWidth;
-    var slidesGutter;
+	var slideWidth;
+    var slideGutter;
     var shift;
     var numSlides;
     var animating;
@@ -61,17 +62,16 @@ Date: 04-25-2012
              * @param self {HTMLElement} The element to create the carousel for.
              */
             build: function(self) {
-                self.find('.slide').css('display','block');
-                $firstSlide = self.find('.slide').first();
-                $firstSlide.addClass('first active');  //first = active slide
-                slidesGutter = parseInt($firstSlide.css('margin-right'));
-                innerWidth = self.find('.slides-wrapper').parent().width();
-                //self.find('.slides-wrapper').css('width', innerWidth);
-                //self.find('.slides-wrapper .slide').css('width', innerWidth);
-                shift = $firstSlide.width() + parseInt(slidesGutter);
-                numSlides = self.find('.slide').size();
-                totalWidth = (numSlides * 3) * (slidesGutter + innerWidth);
-                self.find('.slides').css('width',totalWidth);
+				self.find('.slide').css('display','block');
+				$firstSlide = self.find('.slide').first();
+				$firstSlide.addClass('first active');  //first = active slide
+				slideGutter = parseInt($firstSlide.css('margin-right'), 10);
+				//innerWidth = self.find('.slides-wrapper').parent().width();
+				slideWidth = $firstSlide.width();
+				shift = $firstSlide.width() + parseInt(slideGutter, 10);
+				numSlides = self.find('.slide').size();
+				totalWidth = (numSlides * 3) * (slideGutter + slideWidth);
+				self.find('.slides').css('width',totalWidth);
 
                 if(numSlides > 1){
                     //Add number to slides
@@ -191,7 +191,7 @@ Date: 04-25-2012
 
                     var indexFirst = fc.getFirstSlide(self).index();
                     var indexActive = fc.getActiveSlide(self).index();
-                    if(indexFirst - 2*options.numSlidesPerShift - options.securityMargin < 0) {     //backCarouselToBeginning
+                    if(indexActive - 2*options.numSlidesPerShift - options.securityMargin < 0) {     //backCarouselToBeginning
                         fc.getFirstSlide(self).removeClass('first');
                         fc.getActiveSlide(self).removeClass('active');
                         self.find('.slide').eq(indexActive-options.numSlidesPerShift+numSlides).addClass('first active');
@@ -268,7 +268,7 @@ Date: 04-25-2012
                         var indexFirst = fc.getFirstSlide(self).index();
                         var indexActive = fc.getActiveSlide(self).index();
                         //if we still have slides on our right, move. otherwise insert the first node (circular navigation)
-                        if(indexFirst + (options.numSlidesPerShift-1) + 2*options.numSlidesPerShift + options.securityMargin > self.find('.slide').size()-1) {
+                        if(indexActive + (options.numSlidesPerShift-1) + 2*options.numSlidesPerShift + options.securityMargin > self.find('.slide').size()-1) {
                             fc.getFirstSlide(self).removeClass('first');
                             fc.getActiveSlide(self).removeClass('active');
                             self.find('.slide').eq(indexActive+options.numSlidesPerShift-numSlides).addClass('first active');
