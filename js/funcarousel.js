@@ -3,13 +3,12 @@ Author: Daniel Viedma
 Date: 04-25-2012
 ============================================================ */
 (function($){
-    var totalWidth;
-    var innerWidth;
-	var slideWidth;
-    var slideGutter;
-    var shift;
-    var numSlides;
-    var animating;
+    var totalWidth,
+  		slideWidth,
+    	slideGutter,
+    	shift,
+    	numSlides,
+    	animating;
 
     var $controlnav;
     var $firstSlide;
@@ -63,10 +62,8 @@ Date: 04-25-2012
              */
             build: function(self) {
 				self.find('.slide').css('display','block');
-				$firstSlide = self.find('.slide').first();
-				$firstSlide.addClass('first active');  //first = active slide
+				$firstSlide = self.find('.slide').first().addClass('first active');  //first = active slide
 				slideGutter = parseInt($firstSlide.css('margin-right'), 10);
-				//innerWidth = self.find('.slides-wrapper').parent().width();
 				slideWidth = $firstSlide.width();
 				shift = $firstSlide.width() + parseInt(slideGutter, 10);
 				numSlides = self.find('.slide').size();
@@ -87,20 +84,21 @@ Date: 04-25-2012
                         });
                         $controlnav.insertAfter(self.find('.slides'));
 
-                        var bulletWidth = parseInt($controlnav.find('.control').first().css('width'));
-                        var bulletMargin = parseInt($controlnav.find('.control').first().css('margin-right'))*2;
-                        var controlWidth = numSlides * (bulletWidth + bulletMargin);
+                        var bulletWidth = parseInt($controlnav.find('.control').first().css('width')),
+                        	bulletMargin = parseInt($controlnav.find('.control').first().css('margin-right'))*2,
+                        	controlWidth = numSlides * (bulletWidth + bulletMargin),
+							$control = $controlnav.find('.control');
 
                         $controlnav.find('.wrapper').width(controlWidth);
-                        $controlnav.find('.control').first().addClass('active');
-                        $controlnav.find('.control').each(function(){
+						$control.first().addClass('active');
+						$control.each(function(){
                             $(this).click({self: self, shift: shift, numSlides: numSlides}, fc.navigateTo);
                         });
                     }
 
                     //Build arrows nav
-                    var $arrowLeft = $('<span class="nav-arrow left">left</span>');
-                    var $arrowRight = $('<span class="nav-arrow right">right</span>');
+                    var $arrowLeft = $('<span class="nav-arrow left">left</span>'),
+                    	$arrowRight = $('<span class="nav-arrow right">right</span>');
 
                     $arrowLeft.click({self: self, shift: shift, numSlides: numSlides}, fc.navLeft);
                     $arrowRight.click({self: self, shift: shift, numSlides: numSlides}, fc.navRight);
@@ -137,9 +135,9 @@ Date: 04-25-2012
              * @param e {Event} User click event
              */
             navigateTo: function(e) {
-                var self = e.data.self;
-                var shift = e.data.shift;
-                var numSlides = e.data.numSlides;
+                var self = e.data.self,
+                	shift = e.data.shift,
+                	numSlides = e.data.numSlides;
 
                 var $clickedBullet = $(this);
 
@@ -169,9 +167,9 @@ Date: 04-25-2012
              * @param e {Event} User click event
              */
             navLeft: function(e) {
-                var self = e.data.self;
-                var shift = e.data.shift;
-                var numSlides = e.data.numSlides;
+                var self = e.data.self,
+                	shift = e.data.shift,
+                	numSlides = e.data.numSlides;
 
                 if(animating){
                     return undefined;
@@ -189,7 +187,6 @@ Date: 04-25-2012
                     //move bullet
                     fc.moveBulletLeft(self);
 
-                    var indexFirst = fc.getFirstSlide(self).index();
                     var indexActive = fc.getActiveSlide(self).index();
                     if(indexActive - 2*options.numSlidesPerShift - options.securityMargin < 0) {     //backCarouselToBeginning
                         fc.getFirstSlide(self).removeClass('first');
@@ -244,9 +241,9 @@ Date: 04-25-2012
              * @param e {Event} User click event
              */
             navRight: function (e){
-                var self = e.data.self;
-                var shift = e.data.shift;
-                var numSlides = e.data.numSlides;
+                var self = e.data.self,
+                	shift = e.data.shift,
+                	numSlides = e.data.numSlides;
 
                 //animate slider
                 if(animating){

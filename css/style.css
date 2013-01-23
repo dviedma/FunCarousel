@@ -7,6 +7,7 @@ body {
 .container {
     width: 100%;
     overflow: hidden;
+	position: relative;
 }
 
 .slider {
@@ -143,7 +144,7 @@ p {
 }
 
 #slider2 {
-    position: inherit;
+    position: static;
     margin-top: 50px;
 }
 #slider2 .nav-arrow{
