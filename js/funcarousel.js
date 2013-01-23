@@ -137,7 +137,8 @@ Date: 04-25-2012
             navigateTo: function(e) {
                 var self = e.data.self,
                 	shift = e.data.shift,
-                	numSlides = e.data.numSlides;
+                	numSlides = e.data.numSlides,
+					$slides = self.find('.slides');
 
                 var $clickedBullet = $(this);
 
@@ -149,8 +150,8 @@ Date: 04-25-2012
                 self.find('.control-nav .active').removeClass('active');
                 $clickedBullet.addClass('active');
 
-                self.find('.slides').animate({left:-shift* ($clickedBullet.index()+numSlides) },options.speed, function(){
-                    self.find('.slides').removeClass('blur');
+				$slides.animate({left:-shift* ($clickedBullet.index()+numSlides) },options.speed, function(){
+					$slides.removeClass('blur');
 
                     //move .first class
                     self.find('.slide').removeClass('first active');
@@ -169,7 +170,9 @@ Date: 04-25-2012
             navLeft: function(e) {
                 var self = e.data.self,
                 	shift = e.data.shift,
-                	numSlides = e.data.numSlides;
+                	numSlides = e.data.numSlides,
+					$slide = self.find('.slide'),
+					$slides = self.find('.slides');
 
                 if(animating){
                     return undefined;
@@ -181,7 +184,7 @@ Date: 04-25-2012
                 }
 
                 //animate slider
-                self.find('.slides').animate({left:'+='+shift*options.numSlidesPerShift},options.speed, function(){
+				$slides.animate({left:'+='+shift*options.numSlidesPerShift},options.speed, function(){
                     animating = false;
 
                     //move bullet
@@ -191,10 +194,10 @@ Date: 04-25-2012
                     if(indexActive - 2*options.numSlidesPerShift - options.securityMargin < 0) {     //backCarouselToBeginning
                         fc.getFirstSlide(self).removeClass('first');
                         fc.getActiveSlide(self).removeClass('active');
-                        self.find('.slide').eq(indexActive-options.numSlidesPerShift+numSlides).addClass('first active');
+						$slide.eq(indexActive-options.numSlidesPerShift+numSlides).addClass('first active');
 
                         //move carousel to end
-                        self.find('.slides').css('left', -shift*(indexActive-options.numSlidesPerShift+numSlides));
+						$slides.css('left', -shift*(indexActive-options.numSlidesPerShift+numSlides));
                     }else{                                                                          //keep moving left
                         //shift .first class
                         fc.getFirstSlide(self).removeClass('first').
@@ -202,7 +205,7 @@ Date: 04-25-2012
                             addClass('first');
 
                         fc.getActiveSlide(self).removeClass('active');
-                        self.find('.slide').eq(indexActive-options.numSlidesPerShift).addClass('active');
+						$slide.eq(indexActive-options.numSlidesPerShift).addClass('active');
                     }
 
                     if(options.parallax) {
@@ -243,7 +246,9 @@ Date: 04-25-2012
             navRight: function (e){
                 var self = e.data.self,
                 	shift = e.data.shift,
-                	numSlides = e.data.numSlides;
+                	numSlides = e.data.numSlides,
+					$slide = self.find('.slide'),
+					$slides = self.find('.slides');
 
                 //animate slider
                 if(animating){
@@ -255,7 +260,7 @@ Date: 04-25-2012
                     fc.getFirstSlide(self).find('.box').animate({left:'-='+shift},800);
                 }
 
-                self.find('.slides').animate({left:'-='+shift*options.numSlidesPerShift},{
+				$slides.animate({left:'-='+shift*options.numSlidesPerShift},{
                     duration:options.speed,
                     complete: function(){
                         animating = false;
@@ -268,10 +273,10 @@ Date: 04-25-2012
                         if(indexActive + (options.numSlidesPerShift-1) + 2*options.numSlidesPerShift + options.securityMargin > self.find('.slide').size()-1) {
                             fc.getFirstSlide(self).removeClass('first');
                             fc.getActiveSlide(self).removeClass('active');
-                            self.find('.slide').eq(indexActive+options.numSlidesPerShift-numSlides).addClass('first active');
+							$slide.eq(indexActive+options.numSlidesPerShift-numSlides).addClass('first active');
 
                             //move carousel to beginning
-                            self.find('.slides').css('left',-shift*(indexActive+options.numSlidesPerShift-numSlides));
+							$slides.css('left',-shift*(indexActive+options.numSlidesPerShift-numSlides));
                         } else {                                                         //keep moving right
                             //shift .first class
                             fc.getFirstSlide(self).removeClass('first').
@@ -279,7 +284,7 @@ Date: 04-25-2012
                                 addClass('first');
 
                             fc.getActiveSlide(self).removeClass('active');
-                            self.find('.slide').eq(indexActive+options.numSlidesPerShift).addClass('active');
+							$slide.eq(indexActive+options.numSlidesPerShift).addClass('active');
                         }
 
                         if(options.parallax) {
@@ -298,14 +303,17 @@ Date: 04-25-2012
              * @param self {HTMLElement} The element to create the carousel for.
              */
             moveBulletRight: function(self) {
-                if(self.find('.control-nav .active').next().size() > 0){
-                    self.find('.control-nav .active').removeClass('active').
+				var $controlActive = self.find('.control-nav .active'),
+					$control = self.find('.control-nav .control');
+
+                if($controlActive.next().size() > 0){
+					$controlActive.removeClass('active').
                         next().
                         addClass('active');
                 }
                 else {
-                    self.find('.control-nav .active').removeClass('active');
-                    self.find('.control-nav .control').eq(0).addClass('active');
+					$controlActive.removeClass('active');
+					$control.eq(0).addClass('active');
                 }
             },
 
