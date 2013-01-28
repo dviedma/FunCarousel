@@ -8,6 +8,7 @@ Date: 04-25-2012
     	slideGutter,
     	shift,
     	numSlides,
+		numSlidesPerScreen,
     	animating;
 
     var $controlnav;
@@ -67,10 +68,14 @@ Date: 04-25-2012
 				slideWidth = $firstSlide.width();
 				shift = $firstSlide.width() + parseInt(slideGutter, 10);
 				numSlides = self.find('.slide').size();
-				totalWidth = (numSlides * 3) * (slideGutter + slideWidth);
+				totalWidth = (numSlides * 3) * (slideGutter + slideWidth);	//[copy#1 copy#2 ... copy#n] [#1 #2 ... #n] [copy#1 copy#2 ... copy#n]
 				self.find('.slides').css('width',totalWidth);
 
-                if(numSlides > 1){
+
+				var visibleWidth = (self.css('position') == 'relative')? self.width() : $(window).width();
+				numSlidesPerScreen = (visibleWidth + slideGutter) / (slideWidth + slideGutter);
+
+                if(numSlides > numSlidesPerScreen){
                     //Add number to slides
                     self.find('.slide').each(function(index){
                         $(this).attr('rel', index);
