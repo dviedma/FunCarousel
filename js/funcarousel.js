@@ -342,9 +342,9 @@ Date: 04-25-2012
 
         };
 
-        if(this.length){
-            return fc.build(this);
-        }
+ 		return this.each(function(){
+			fc.build($(this));
+		});
 
     };
 }(jQuery));

@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a36abb2c-ff5d-4f01-b487-16dd59af3bc3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/libs/jquery-animate-enhanced.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/funcarousel.js" afterPath="$PROJECT_DIR$/js/funcarousel.js" />
     </list>
@@ -31,7 +28,7 @@
       <file leaf-file-name="funcarousel.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/funcarousel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="261" column="0" selection-start="10809" selection-end="10809" vertical-scroll-proportion="2.967954">
+            <state line="344" column="1" selection-start="14198" selection-end="14198" vertical-scroll-proportion="0.87345934">
               <folding />
             </state>
           </provider>
@@ -51,8 +48,11 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="134" column="4" selection-start="5797" selection-end="5797" vertical-scroll-proportion="-21.47826">
-              <folding />
+            <state line="169" column="17" selection-start="5279" selection-end="5279" vertical-scroll-proportion="-32.434784">
+              <folding>
+                <marker date="1359394333000" expanded="true" signature="6074:6167" placeholder="..." />
+                <marker date="1359394333000" expanded="true" signature="6116:6158" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -82,8 +82,8 @@
         <option value="$PROJECT_DIR$/js/libs/jquery.transit.min.js" />
         <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/js/libs/jquery-animate-enhanced.js" />
-        <option value="$PROJECT_DIR$/js/funcarousel.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/funcarousel.js" />
       </list>
     </option>
   </component>
@@ -331,14 +331,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="134" column="4" selection-start="5797" selection-end="5797" vertical-scroll-proportion="-21.47826">
-          <folding />
+        <state line="169" column="17" selection-start="5279" selection-end="5279" vertical-scroll-proportion="-32.434784">
+          <folding>
+            <marker date="1359394333000" expanded="true" signature="6074:6167" placeholder="..." />
+            <marker date="1359394333000" expanded="true" signature="6116:6158" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/funcarousel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="261" column="0" selection-start="10809" selection-end="10809" vertical-scroll-proportion="2.967954">
+        <state line="344" column="1" selection-start="14198" selection-end="14198" vertical-scroll-proportion="0.87345934">
           <folding />
         </state>
       </provider>
