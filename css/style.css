@@ -141,12 +141,12 @@ p {
 	font-family: 'helvetica', arial, san-serif;
 }
 
-.box {
+.parallax-foreground {
 	position: absolute;
 	width: 100px;
 	height: 100px;
 	top: 200px;
-	left: 450px;
+	left: 20%;
 }
 
 .slides.blur .text-block h2, .slides.blur .text-block p {

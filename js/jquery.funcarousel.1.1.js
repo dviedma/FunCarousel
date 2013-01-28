@@ -9,7 +9,8 @@ Date: 04-25-2012
     	shift,
     	numSlides,
 		numSlidesPerScreen,
-    	animating;
+    	animating,
+		parallaxForegroundPosition;
 
     var $controlnav;
     var $firstSlide;
@@ -63,7 +64,7 @@ Date: 04-25-2012
              */
             build: function(self) {
 				self.find('.slide').css('display','block');
-				$firstSlide = self.find('.slide').first().addClass('first active');  //first = active slide
+				$firstSlide = self.find('.slide').first().addClass('active');  //active = fist visible slide
 				slideGutter = parseInt($firstSlide.css('margin-right'), 10);
 				slideWidth = $firstSlide.width();
 				shift = $firstSlide.width() + parseInt(slideGutter, 10);
@@ -118,7 +119,7 @@ Date: 04-25-2012
                     for (var i=0; i<numCopies; i++) {
                         slideNodes[i] = self.find('.slide').eq(i).clone().attr('rel','');
                         if (i==0) {
-                            slideNodes[i].removeClass('first active');
+                            slideNodes[i].removeClass('active');
                         }
                     }
                     for (var z=0; z<numCopies; z++) {
@@ -127,6 +128,10 @@ Date: 04-25-2012
                     for (var j=numCopies-1; j>=0; j--) {
                         self.find('.slides').prepend( slideNodes[j].clone().attr('rel','alpha') );
                     }
+
+					if(options.parallax) {
+						parallaxForegroundPosition = self.find('.parallax-foreground').first().css('left');
+					}
                 }
 
                 return self;
@@ -158,9 +163,9 @@ Date: 04-25-2012
 				$slides.animate({left:-shift* ($clickedBullet.index()+numSlides) },options.speed, function(){
 					$slides.removeClass('blur');
 
-                    //move .first class
-                    self.find('.slide').removeClass('first active');
-                    self.find('.slide[rel="'+$clickedBullet.index()+'"]').addClass('first active');
+                    //move .active class
+                    self.find('.slide').removeClass('active');
+                    self.find('.slide[rel="'+$clickedBullet.index()+'"]').addClass('active');
                 });
             },
 
@@ -185,7 +190,7 @@ Date: 04-25-2012
                 animating = true;
 
                 if(options.parallax) {
-                    fc.getFirstSlide(self).find('.box').animate({left:'+='+shift},800);
+                    fc.getActiveSlide(self).find('.parallax-foreground').animate({left:'+='+shift}, options.speed*0.5);
                 }
 
                 //animate slider
@@ -197,24 +202,18 @@ Date: 04-25-2012
 
                     var indexActive = fc.getActiveSlide(self).index();
                     if(indexActive - 2*options.numSlidesPerShift - options.securityMargin < 0) {     //backCarouselToBeginning
-                        fc.getFirstSlide(self).removeClass('first');
                         fc.getActiveSlide(self).removeClass('active');
-						$slide.eq(indexActive-options.numSlidesPerShift+numSlides).addClass('first active');
+						$slide.eq(indexActive-options.numSlidesPerShift+numSlides).addClass('active');
 
                         //move carousel to end
 						$slides.css('left', -shift*(indexActive-options.numSlidesPerShift+numSlides));
                     }else{                                                                          //keep moving left
-                        //shift .first class
-                        fc.getFirstSlide(self).removeClass('first').
-                            prev().
-                            addClass('first');
-
                         fc.getActiveSlide(self).removeClass('active');
 						$slide.eq(indexActive-options.numSlidesPerShift).addClass('active');
                     }
 
                     if(options.parallax) {
-                        $('.box').css('left', '450px');
+                        $('.parallax-foreground').css('left', parallaxForegroundPosition);
                     }
 
                 });
@@ -262,7 +261,7 @@ Date: 04-25-2012
                 animating = true;
 
                 if(options.parallax) {
-                    fc.getFirstSlide(self).find('.box').animate({left:'-='+shift},800);
+                    fc.getActiveSlide(self).find('.parallax-foreground').animate({left:'-='+shift}, options.speed*0.75);
                 }
 
 				$slides.animate({left:'-='+shift*options.numSlidesPerShift},{
@@ -273,28 +272,21 @@ Date: 04-25-2012
                         //move bullet
                         fc.moveBulletRight(self);
 
-                        var indexFirst = fc.getFirstSlide(self).index();
                         var indexActive = fc.getActiveSlide(self).index();
                         //if we still have slides on our right, move. otherwise insert the first node (circular navigation)
                         if(indexActive + (options.numSlidesPerShift-1) + 2*options.numSlidesPerShift + options.securityMargin > self.find('.slide').size()-1) {
-                            fc.getFirstSlide(self).removeClass('first');
                             fc.getActiveSlide(self).removeClass('active');
-							$slide.eq(indexActive+options.numSlidesPerShift-numSlides).addClass('first active');
+							$slide.eq(indexActive+options.numSlidesPerShift-numSlides).addClass('active');
 
                             //move carousel to beginning
 							$slides.css('left',-shift*(indexActive+options.numSlidesPerShift-numSlides));
                         } else {                                                         //keep moving right
-                            //shift .first class
-                            fc.getFirstSlide(self).removeClass('first').
-                                next().
-                                addClass('first');
-
                             fc.getActiveSlide(self).removeClass('active');
 							$slide.eq(indexActive+options.numSlidesPerShift).addClass('active');
                         }
 
                         if(options.parallax) {
-                            $('.box').css('left', '450px');
+                            $('.parallax-foreground').css('left', parallaxForegroundPosition);
                         }
 
                     }
@@ -324,20 +316,9 @@ Date: 04-25-2012
             },
 
             /**
-             * Auxiliar function to get the .first slide THRESHOLD detection purpose
-             *
-             * @method getFirstSlide
-             * @return first/active/visible slide
-             * @param self {HTMLElement} The element to create the carousel for.
-             */
-            getFirstSlide: function(self) {
-                return self.find('.slide.first');
-            },
-
-            /**
              * Auxiliar function to get the .active slide (first visible slide)
              *
-             * @method getFirstSlide
+             * @method getActiveSlide
              * @return first/active/visible slide
              * @param self {HTMLElement} The element to create the carousel for.
              */
