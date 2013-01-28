@@ -20,3 +20,4 @@ v1.1 Changelog:
 - Display controls only if numSlides > numSlidesPerScreen
 - CSS layout issues in IE8 fixed
 - JS error in IE7 fixed
+- Some micro-optimizations: variable stacking, chaining, etc.
