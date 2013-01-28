@@ -263,7 +263,8 @@ Date: 04-25-2012
 				$slides.animate({left:'-='+shift*options.numSlidesPerShift},{
                     duration:options.speed,
                     complete: function(){
-                        animating = false;
+
+						animating = false;
                         //move bullet
                         fc.moveBulletRight(self);
 

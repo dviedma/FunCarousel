@@ -1,169 +1,198 @@
 /* General slider styles */
 body {
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 .container {
-    width: 100%;
-    overflow: hidden;
+	width: 100%;
+	overflow: hidden;
 	position: relative;
 }
 
 .slider {
-    margin-right: 0;
-    /*overflow: hidden;*/
-    position: relative;
-    margin: 0 auto;
-    width: 960px;
+	margin-right: 0;
+	/*overflow: hidden;*/
+	position: relative;
+	margin: 0 auto;
+	width: 960px;
 }
 
 .slides-wrapper {
-  width: 100%;
-  /*overflow: hidden;*/
-  position: relative;
-  height: 400px;
-  margin: 0 auto;
+	width: 100%;
+	/*overflow: hidden;*/
+	position: relative;
+	height: 400px;
+	margin: 0 auto;
 }
+
 /* line 13, ../../sass/core/funcarousel.scss */
 .slides-wrapper .slides {
-  height: 400px;
-  position: absolute;
+	height: 400px;
+	position: absolute;
+
+	/*transition: all 0.5s ease-in-out;*/
+	/* pasar parametro con el tiempo!!! */
 }
+.slides-wrapper .slides:hover,
+.slides-wrapper .slides.test {
+	/*transform: translate3d(-1000px, 0, 0);*/
+	/* pasar parametro con los pixeles!!! */
+}
+
 /* line 16, ../../sass/core/funcarousel.scss */
 .slides-wrapper .slides .slide {
-  float: left;
-  margin-right: 20px;
-  width: 100%;
-  display: none;
-  width: 960px;
-  position: relative;
+	float: left;
+	margin-right: 20px;
+	width: 100%;
+	display: none;
+	width: 960px;
+	position: relative;
 }
 
 /* line 25, ../../sass/core/funcarousel.scss */
 .control-nav {
-  padding-top: 10px;
-  margin: 0 auto;
-  bottom: 0;
-  margin: 0;
-  position: absolute;
-  width: 100%;
+	padding-top: 10px;
+	margin: 0 auto;
+	bottom: 0;
+	margin: 0;
+	position: absolute;
+	width: 100%;
 }
+
 /* line 32, ../../sass/core/funcarousel.scss */
 .control-nav .wrapper {
-  margin: 0 auto;
+	margin: 0 auto;
 }
+
 /* line 34, ../../sass/core/funcarousel.scss */
 .control-nav .wrapper .control {
-  display: block;
-  background: #dddddd;
-  width: 11px;
-  height: 12px;
-  float: left;
-  text-indent: -9999px;
-  margin: 0 5px;
-  cursor: pointer;
+	display: block;
+	background: #dddddd;
+	width: 11px;
+	height: 12px;
+	float: left;
+	text-indent: -9999px;
+	margin: 0 5px;
+	cursor: pointer;
 }
+
 /* line 43, ../../sass/core/funcarousel.scss */
 .control-nav .wrapper .control.active {
-  background: #aaaaaa;
+	background: #aaaaaa;
 }
 
 /* line 50, ../../sass/core/funcarousel.scss */
 .nav-arrow {
-  display: block;
-  width: 80px;
-  height: 80px;
-  position: absolute;
-  top: 210px;
-  text-indent: -9999px;
-  cursor: pointer;
-  background: #dddddd;
+	display: block;
+	width: 80px;
+	height: 80px;
+	position: absolute;
+	top: 210px;
+	text-indent: -9999px;
+	cursor: pointer;
+	background: #dddddd;
 }
+
 /* line 59, ../../sass/core/funcarousel.scss */
 .nav-arrow.left {
-  left: 0;
+	left: 0;
 }
+
 /* line 62, ../../sass/core/funcarousel.scss */
 .nav-arrow.right {
-  right: 0;
+	right: 0;
 }
 
 /* line 67, ../../sass/core/funcarousel.scss */
 .slides.blur {
-  opacity: 0.5;
+	opacity: 0.5;
 }
+
 /* line 69, ../../sass/core/funcarousel.scss */
 .slides.blur .text-block {
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+	text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
+
 /* line 72, ../../sass/core/funcarousel.scss */
 .slides.blur .media-block {
-  box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* Custom slides style */
 .text-block {
-    float: left;
-    width: 48%;
-    margin-top: 80px;
+	float: left;
+	width: 48%;
+	margin-top: 80px;
 }
+
 .media-block {
-    float: right;
-    margin-top: 130px;
+	float: right;
+	margin-top: 130px;
 }
+
 h2 {
-    font-size: 64px;
-    font-family: 'helvetica', arial, san-serif;
+	font-size: 64px;
+	font-family: 'helvetica', arial, san-serif;
 }
+
 p {
-    font-size: 16px;
-    font-family: 'helvetica', arial, san-serif;
+	font-size: 16px;
+	font-family: 'helvetica', arial, san-serif;
 }
+
 .box {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 200px;
-    left: 450px;
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	top: 200px;
+	left: 450px;
 }
+
 .slides.blur .text-block h2, .slides.blur .text-block p {
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+	text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
+
 .slides.blur .btn, .slides.blur .video-block {
-    box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.3);
 }
+
 #box1 {
-    background: red;
+	background: red;
 }
+
 #box2 {
-    background: blue;
+	background: blue;
 }
+
 #box3 {
-    background: green;
+	background: green;
 }
 
 #slider2 {
-    position: static;
-    margin-top: 50px;
+	position: static;
+	margin-top: 50px;
 }
-#slider2 .nav-arrow{
-    top: 580px;
+
+#slider2 .nav-arrow {
+	top: 580px;
 }
+
 #slider2 .slide {
-    width: 290px;
-    height: 350px;
-    margin-right: 30px;
-    background: #9acd32;
+	width: 290px;
+	height: 350px;
+	margin-right: 30px;
+	background: #9acd32;
 }
 
 #slider3 {
-    width: 640px;
-    overflow: hidden;
+	width: 640px;
+	overflow: hidden;
 }
+
 #slider3 .slide {
-    width: 200px;
-    height: 300px;
-    background: #87cefa;
+	width: 200px;
+	height: 300px;
+	background: #87cefa;
 }
 
