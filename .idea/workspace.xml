@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a36abb2c-ff5d-4f01-b487-16dd59af3bc3" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/funcarousel.js" afterPath="$PROJECT_DIR$/js/jquery.funcarousel.1.1.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-    </list>
+    <list default="true" id="a36abb2c-ff5d-4f01-b487-16dd59af3bc3" name="Default" comment="" />
     <ignored path="FunCarousel.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -61,7 +57,7 @@
       <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="57" selection-start="560" selection-end="560" vertical-scroll-proportion="0.21626016">
+            <state line="22" column="0" selection-start="618" selection-end="618" vertical-scroll-proportion="0.2504065">
               <folding />
             </state>
           </provider>
@@ -359,7 +355,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="57" selection-start="560" selection-end="560" vertical-scroll-proportion="0.21626016">
+        <state line="22" column="0" selection-start="618" selection-end="618" vertical-scroll-proportion="0.2504065">
           <folding />
         </state>
       </provider>
