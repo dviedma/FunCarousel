@@ -10,7 +10,8 @@ Date: 04-25-2012
     	numSlides,
 		numSlidesPerScreen,
     	animating,
-		parallaxForegroundPosition;
+		parallaxForegroundPosition,
+		t;
 
     var $controlnav;
     var $firstSlide;
@@ -25,7 +26,9 @@ Date: 04-25-2012
             //size of the shift and how wide is the slide
 
             numSlidesPerShift: 1,
-            parallax: false
+            parallax: false,
+			auto: false,
+   			autoInterval: 5000
         };
 
         var options = $.extend({}, defaults, ops);
@@ -132,6 +135,11 @@ Date: 04-25-2012
 					if(options.parallax) {
 						parallaxForegroundPosition = self.find('.parallax-foreground').first().css('left');
 					}
+
+                    //auto rotation
+                    if(options.auto) {
+                        fc.slideAuto(self, shift, numSlides);
+                    }
                 }
 
                 return self;
@@ -152,6 +160,10 @@ Date: 04-25-2012
 
                 var $clickedBullet = $(this);
 
+				if(e.type == "click"){
+					clearTimeout(t);
+				}
+
                 if(Math.abs(self.find('.control-nav .active').index()-$clickedBullet.index()) > 1){
                     self.find('.slides').addClass('blur');
                 }
@@ -166,6 +178,11 @@ Date: 04-25-2012
                     //move .active class
                     self.find('.slide').removeClass('active');
                     self.find('.slide[rel="'+$clickedBullet.index()+'"]').addClass('active');
+
+                    //auto rotation
+                    if(options.auto) {
+                        fc.slideAuto(self, shift, numSlides);
+                    }
                 });
             },
 
@@ -183,6 +200,10 @@ Date: 04-25-2012
                 	numSlides = e.data.numSlides,
 					$slide = self.find('.slide'),
 					$slides = self.find('.slides');
+
+				if(e.type == "click"){
+					clearTimeout(t);
+				}
 
                 if(animating){
                     return undefined;
@@ -214,6 +235,11 @@ Date: 04-25-2012
 
                     if(options.parallax) {
                         $('.parallax-foreground').css('left', parallaxForegroundPosition);
+                    }
+
+                   	//auto rotation
+                    if(options.auto) {
+                        fc.slideAuto(self, shift, numSlides);
                     }
 
                 });
@@ -254,6 +280,10 @@ Date: 04-25-2012
 					$slide = self.find('.slide'),
 					$slides = self.find('.slides');
 
+				if(e.type == "click"){
+					clearTimeout(t);
+				}
+
                 //animate slider
                 if(animating){
                     return undefined;
@@ -288,6 +318,11 @@ Date: 04-25-2012
                         if(options.parallax) {
                             $('.parallax-foreground').css('left', parallaxForegroundPosition);
                         }
+
+						//auto rotation
+						if(options.auto) {
+							fc.slideAuto(self, shift, numSlides);
+						}
 
                     }
                 });
@@ -324,7 +359,28 @@ Date: 04-25-2012
              */
             getActiveSlide: function(self) {
                 return self.find('.slide.active');
-            }
+            },
+
+			/**
+			 * Auxiliar function to get fire the auto navigation
+			 *
+			 * @method slideAuto
+			 * @return undefined
+			 * @param self {HTMLElement} The element to create the carousel for.
+			 */
+			slideAuto: function(self, shift, numSlides) {
+				var e = {
+					data: {
+						self: self,
+						shift: shift,
+						numSlides: numSlides
+					}
+				};
+				t = setTimeout(function(){
+					fc.navRight(e);
+				}, options.autoInterval);
+			}
+
 
         };
 
